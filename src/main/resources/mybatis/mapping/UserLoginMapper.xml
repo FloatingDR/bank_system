@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bank.system.mapper.UserLoginMapper" >
+  <resultMap id="BaseResultMap" type="com.bank.system.model.UserLogin" >
+    <id column="identity_card_id" property="identityCardId" jdbcType="VARCHAR" />
+    <result column="login_password" property="loginPassword" jdbcType="VARCHAR" />
+    <result column="role_style" property="roleStyle" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    identity_card_id, login_password, role_style
+  </sql>
+  <select id="selectByIdCard" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_login
+    where identity_card_id = #{identityCardId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByIdCard" parameterType="java.lang.String" >
+    delete from user_login
+    where identity_card_id = #{identityCardId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bank.system.model.UserLogin" >
+    insert into user_login (identity_card_id, login_password, role_style
+      )
+    values (#{identityCardId,jdbcType=VARCHAR}, #{loginPassword,jdbcType=VARCHAR}, #{roleStyle,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bank.system.model.UserLogin" >
+    insert into user_login
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="identityCardId != null" >
+        identity_card_id,
+      </if>
+      <if test="loginPassword != null" >
+        login_password,
+      </if>
+      <if test="roleStyle != null" >
+        role_style,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="identityCardId != null" >
+        #{identityCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPassword != null" >
+        #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="roleStyle != null" >
+        #{roleStyle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByIdCardSelective" parameterType="com.bank.system.model.UserLogin" >
+    update user_login
+    <set >
+      <if test="loginPassword != null" >
+        login_password = #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="roleStyle != null" >
+        role_style = #{roleStyle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where identity_card_id = #{identityCardId,jdbcType=VARCHAR}
+  </update>
+</mapper>

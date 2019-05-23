@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bank.system.mapper.BankCardInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.bank.system.model.BankCardInfo" >
+    <id column="bank_card_id" property="bankCardId" jdbcType="VARCHAR" />
+    <result column="pay_password" property="payPassword" jdbcType="VARCHAR" />
+    <result column="open_date" property="openDate" jdbcType="TIMESTAMP" />
+    <result column="open_money" property="openMoney" jdbcType="DOUBLE" />
+    <result column="current_balance" property="currentBalance" jdbcType="DOUBLE" />
+    <result column="regular_balance" property="regularBalance" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    bank_card_id, pay_password, open_date, open_money, current_balance, regular_balance
+  </sql>
+  <select id="selectByBankCardId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bank_card_info
+    where bank_card_id = #{bankCardId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByBankCardId" parameterType="java.lang.String" >
+    delete from bank_card_info
+    where bank_card_id = #{bankCardId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bank.system.model.BankCardInfo" >
+    insert into bank_card_info (bank_card_id, pay_password, open_date, 
+      open_money, current_balance, regular_balance)
+    values (#{bankCardId,jdbcType=VARCHAR}, #{payPassword,jdbcType=VARCHAR}, #{openDate,jdbcType=TIMESTAMP}, 
+      #{openMoney,jdbcType=DOUBLE}, #{currentBalance,jdbcType=DOUBLE}, #{regularBalance,jdbcType=DOUBLE})
+  </insert>
+
+  <update id="updateByBankCardIdSelective" parameterType="com.bank.system.model.BankCardInfo" >
+    update bank_card_info
+    <set >
+      <if test="payPassword != null" >
+        pay_password = #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null" >
+        open_date = #{openDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openMoney != null" >
+        open_money = #{openMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="currentBalance != null" >
+        current_balance = #{currentBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="regularBalance != null" >
+        regular_balance = #{regularBalance,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where bank_card_id = #{bankCardId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateRegularByCardId_Minus">
+    update bank_card_info
+    set regular_balance=regular_balance - #{regularBalance,jdbcType=DOUBLE}
+    where bank_card_id=#{bankCardId,jdbcType=VARCHAR}
+  </update>
+</mapper>

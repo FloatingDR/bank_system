@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bank.system.mapper.SavingMoneyViewMapper" >
+  <resultMap id="BaseResultMap" type="com.bank.system.model.SavingMoneyView" >
+    <result column="identity_card_id" property="identityCardId" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="trade_date" property="tradeDate" jdbcType="TIMESTAMP" />
+    <result column="receipt_card" property="receiptCard" jdbcType="VARCHAR" />
+    <result column="trans_type" property="transType" jdbcType="VARCHAR" />
+    <result column="trans_money" property="transMoney" jdbcType="DOUBLE" />
+  </resultMap>
+  <select id="getByBankCardId" resultMap="BaseResultMap" parameterType="string">
+    select * from saving_money
+    where receipt_card=#{bankCardId}
+  </select>
+</mapper>

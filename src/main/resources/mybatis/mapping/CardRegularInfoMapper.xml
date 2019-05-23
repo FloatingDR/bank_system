@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bank.system.mapper.CardRegularInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.bank.system.model.CardRegularInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="bank_card_id" property="bankCardId" jdbcType="VARCHAR" />
+    <result column="regular_money" property="regularMoney" jdbcType="DOUBLE" />
+    <result column="saving_month" property="savingMonth" jdbcType="INTEGER" />
+    <result column="saving_date" property="savingDate" jdbcType="TIMESTAMP" />
+    <result column="stop_date" property="stopDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, bank_card_id, regular_money, saving_month, saving_date, stop_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from card_regular_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getCardRegularInfos" resultMap="BaseResultMap" parameterType="string">
+    select
+    <include refid="Base_Column_List"/>
+    from card_regular_info
+    where bank_card_id=#{bankCardId}
+  </select>
+  <delete id="deleteByBankCardId" parameterType="java.lang.String" >
+    delete from card_regular_info
+    where bank_card_id = #{bankCardId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bank.system.model.CardRegularInfo" >
+    insert into card_regular_info (id, bank_card_id, regular_money, 
+      saving_month, saving_date, stop_date
+      )
+    values (#{id,jdbcType=INTEGER}, #{bankCardId,jdbcType=VARCHAR}, #{regularMoney,jdbcType=DOUBLE}, 
+      #{savingMonth,jdbcType=INTEGER}, #{savingDate,jdbcType=TIMESTAMP}, #{stopDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bank.system.model.CardRegularInfo" >
+    insert into card_regular_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="bankCardId != null" >
+        bank_card_id,
+      </if>
+      <if test="regularMoney != null" >
+        regular_money,
+      </if>
+      <if test="savingMonth != null" >
+        saving_month,
+      </if>
+      <if test="savingDate != null" >
+        saving_date,
+      </if>
+      <if test="stopDate != null" >
+        stop_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bankCardId != null" >
+        #{bankCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="regularMoney != null" >
+        #{regularMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="savingMonth != null" >
+        #{savingMonth,jdbcType=INTEGER},
+      </if>
+      <if test="savingDate != null" >
+        #{savingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopDate != null" >
+        #{stopDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByBankCardId" parameterType="com.bank.system.model.CardRegularInfo" >
+    update card_regular_info
+    <set >
+      <if test="regularMoney != null" >
+        regular_money = #{regularMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="savingMonth != null" >
+        saving_month = #{savingMonth,jdbcType=INTEGER},
+      </if>
+      <if test="savingDate != null" >
+        saving_date = #{savingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopDate != null" >
+        stop_date = #{stopDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where bank_card_id = #{bankCardId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bank.system.model.CardRegularInfo" >
+    update card_regular_info
+    <set >
+      <if test="bankCardId != null" >
+        bank_card_id = #{bankCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="regularMoney != null" >
+        regular_money = #{regularMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="savingMonth != null" >
+        saving_month = #{savingMonth,jdbcType=INTEGER},
+      </if>
+      <if test="savingDate != null" >
+        saving_date = #{savingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopDate != null" >
+        stop_date = #{stopDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bank.system.model.CardRegularInfo" >
+    update card_regular_info
+    set bank_card_id = #{bankCardId,jdbcType=VARCHAR},
+      regular_money = #{regularMoney,jdbcType=DOUBLE},
+      saving_month = #{savingMonth,jdbcType=INTEGER},
+      saving_date = #{savingDate,jdbcType=TIMESTAMP},
+      stop_date = #{stopDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

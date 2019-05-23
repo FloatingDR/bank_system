@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bank.system.mapper.UserCardMapper" >
+  <resultMap id="BaseResultMap" type="com.bank.system.model.UserCard" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="identity_card_id" property="identityCardId" jdbcType="VARCHAR" />
+    <result column="bank_card_id" property="bankCardId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, identity_card_id, bank_card_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_card
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByBankCardId" parameterType="string" >
+    delete from user_card
+    where bank_card_id = #{bankCardId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bank.system.model.UserCard" >
+    insert into user_card (id, identity_card_id, bank_card_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{identityCardId,jdbcType=VARCHAR}, #{bankCardId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bank.system.model.UserCard" >
+    insert into user_card
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="identityCardId != null" >
+        identity_card_id,
+      </if>
+      <if test="bankCardId != null" >
+        bank_card_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="identityCardId != null" >
+        #{identityCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardId != null" >
+        #{bankCardId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bank.system.model.UserCard" >
+    update user_card
+    <set >
+      <if test="identityCardId != null" >
+        identity_card_id = #{identityCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardId != null" >
+        bank_card_id = #{bankCardId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bank.system.model.UserCard" >
+    update user_card
+    set identity_card_id = #{identityCardId,jdbcType=VARCHAR},
+      bank_card_id = #{bankCardId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

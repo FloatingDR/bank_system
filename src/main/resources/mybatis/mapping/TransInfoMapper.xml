@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bank.system.mapper.TransInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.bank.system.model.TransInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="trade_date" property="tradeDate" jdbcType="TIMESTAMP" />
+    <result column="disburse_card" property="disburseCard" jdbcType="VARCHAR" />
+    <result column="receipt_card" property="receiptCard" jdbcType="VARCHAR" />
+    <result column="trans_type" property="transType" jdbcType="VARCHAR" />
+    <result column="trans_money" property="transMoney" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, trade_date, disburse_card, receipt_card, trans_type, trans_money
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from trans_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByBankIdAndDate" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from trans_info
+    where disburse_card=#{bankCardId} and trade_date=#{tradeDate}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from trans_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.bank.system.model.TransInfo" >
+    insert into trans_info (id, trade_date, disburse_card, 
+      receipt_card, trans_type, trans_money
+      )
+    values (#{id,jdbcType=INTEGER}, #{tradeDate,jdbcType=TIMESTAMP}, #{disburseCard,jdbcType=VARCHAR}, 
+      #{receiptCard,jdbcType=VARCHAR}, #{transType,jdbcType=VARCHAR}, #{transMoney,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bank.system.model.TransInfo" >
+    insert into trans_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tradeDate != null" >
+        trade_date,
+      </if>
+      <if test="disburseCard != null" >
+        disburse_card,
+      </if>
+      <if test="receiptCard != null" >
+        receipt_card,
+      </if>
+      <if test="transType != null" >
+        trans_type,
+      </if>
+      <if test="transMoney != null" >
+        trans_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tradeDate != null" >
+        #{tradeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disburseCard != null" >
+        #{disburseCard,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptCard != null" >
+        #{receiptCard,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transMoney != null" >
+        #{transMoney,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bank.system.model.TransInfo" >
+    update trans_info
+    <set >
+      <if test="tradeDate != null" >
+        trade_date = #{tradeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disburseCard != null" >
+        disburse_card = #{disburseCard,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptCard != null" >
+        receipt_card = #{receiptCard,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        trans_type = #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transMoney != null" >
+        trans_money = #{transMoney,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bank.system.model.TransInfo" >
+    update trans_info
+    set trade_date = #{tradeDate,jdbcType=TIMESTAMP},
+      disburse_card = #{disburseCard,jdbcType=VARCHAR},
+      receipt_card = #{receiptCard,jdbcType=VARCHAR},
+      trans_type = #{transType,jdbcType=VARCHAR},
+      trans_money = #{transMoney,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

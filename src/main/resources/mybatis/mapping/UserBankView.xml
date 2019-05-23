@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bank.system.mapper.UserBankViewMapper">
+    <resultMap id="BaseResultMap" type="com.bank.system.model.UserBankView">
+        <result column="identity_card_id" property="identityCardId" jdbcType="VARCHAR"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="telephone" property="telephone" jdbcType="VARCHAR"/>
+        <result column="bank_card_id" property="bankCardId" jdbcType="VARCHAR"/>
+        <result column="open_date" property="openDate" jdbcType="TIMESTAMP"/>
+        <result column="open_money" property="openMoney" jdbcType="VARCHAR"/>
+        <result column="current_balance" property="currentBalance" jdbcType="DOUBLE"/>
+        <result column="regular_balance" property="regularBalance" jdbcType="DOUBLE"/>
+    </resultMap>
+    <select id="getBankCardIdByIdCard" resultType="string" parameterType="string">
+        select bank_card_id
+        from user_bank_info
+        where identity_card_id=#{identityCardId}
+    </select>
+    <select id="getUserBankInfoByIdCard" resultMap="BaseResultMap" parameterType="string">
+        select * from
+        user_bank_info
+        where identity_card_id=#{identityCardId}
+    </select>
+    <select id="createAbelCallProc" parameterType="java.util.Map"  statementType="CALLABLE" resultType="string">
+       <![CDATA[{
+           CALL createAccount(
+             #{identityCardId,mode=IN,jdbcType=VARCHAR},
+             #{result,mode=OUT,jdbcType=VARCHAR}
+           )
+       }]]>
+    </select>
+
+</mapper>

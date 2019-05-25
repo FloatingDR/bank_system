@@ -25,4 +25,5 @@ public interface AccessMoneyService {
      * @return
      */
     ResponseBean savingMoney(SavingMoneyBean savingMoneyBean);
+
 }

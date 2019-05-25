@@ -30,4 +30,11 @@ public interface BankCardService {
      * @return
      */
     ResponseBean deleteBankCard(String bank_card_id,String pay_password);
+
+    /**
+     * 根据身份证号查找银行卡列表
+     * @param identityCardId
+     * @return
+     */
+    ResponseBean getUserCards(String identityCardId);
 }

@@ -50,6 +50,7 @@ public class AuthController {
 
     /**
      * 更改密码 所有人可访问
+     *
      * @param bean
      * @date 2019-5-20
      */

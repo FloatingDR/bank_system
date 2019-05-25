@@ -120,4 +120,19 @@ public class BankCardServiceImpl implements BankCardService {
         }
         return new ResponseBean(ResultCode.FORBIDDEN, "password error", "密码错误，不允许注销");
     }
+
+    /**
+     * 根据身份证号查找银行卡列表
+     * @param identityCardId
+     * @return
+     */
+    @Override
+    public ResponseBean getUserCards(String identityCardId) {
+        List<String> bankCards=userCardMapper.getUserCards(identityCardId);
+        if(bankCards.isEmpty()){
+            return new ResponseBean(ResultCode.NOTFOUND, "you are no bank cards", "你没有银行卡");
+        }
+        return new ResponseBean(ResultCode.SUCCESS, "this is your bank cards", bankCards);
+    }
+
 }

@@ -15,6 +15,11 @@
     from user_card
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="getUserCards" resultType="string" parameterType="string">
+    select bank_card_id
+    from user_card
+    where identity_card_id=#{identityCard}
+  </select>
   <delete id="deleteByBankCardId" parameterType="string" >
     delete from user_card
     where bank_card_id = #{bankCardId,jdbcType=VARCHAR}

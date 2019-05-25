@@ -37,10 +37,24 @@ public class BankCardController {
                 changePassBean.getOldPassword(),changePassBean.getNewPassword());
     }
 
+    /**
+     * 注销银行卡 仅允许admin用户访问
+     * @return
+     */
     @PostMapping("/delete_bankcard")
     @RequiresRoles("admin")
     public ResponseBean deleteBankCard(@RequestBody BankCardInfo bankCardInfo){
         return bankCardService.deleteBankCard(bankCardInfo.getBankCardId(),bankCardInfo.getPayPassword());
+    }
+
+    /**
+     * 根据身份证号查找银行卡列表
+     * @param idCard
+     * @return
+     */
+    @GetMapping("/get_bank_cards/{idCard}")
+    public  ResponseBean getUserCards(@PathVariable String idCard){
+        return bankCardService.getUserCards(idCard);
     }
 
 }

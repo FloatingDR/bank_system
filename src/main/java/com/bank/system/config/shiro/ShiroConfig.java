@@ -50,6 +50,8 @@ public class ShiroConfig {
         filterRuleMap.put("/api/auth/hello", "jwt");
         filterRuleMap.put("/api/auth/login", "anon");
         filterRuleMap.put("/api/auth/change_login_password", "anon");
+        filterRuleMap.put("/api/auth/register_account", "anon");
+
 
         // 所有请求通过JWT Filter
         filterRuleMap.put("/**", "jwt");

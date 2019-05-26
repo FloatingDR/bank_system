@@ -38,7 +38,7 @@ public class BankCardController {
     }
 
     /**
-     * 注销银行卡 仅允许admin用户访问
+     * 注销银行卡
      * @return
      */
     @PostMapping("/delete_bankcard")

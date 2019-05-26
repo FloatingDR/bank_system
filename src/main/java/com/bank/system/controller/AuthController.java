@@ -66,7 +66,6 @@ public class AuthController {
      * @date 2019-5-20
      */
     @PostMapping("/register_account")
-    @RequiresRoles("admin")
     public ResponseBean registerAccount(@RequestBody RegisterBean bean) {
         return authService.registerAccount(bean);
     }

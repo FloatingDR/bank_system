@@ -103,12 +103,11 @@ public class AccessMoneyServiceImpl implements AccessMoneyService {
                 }
             }
             if (flag == -2) {
-                return new ResponseBean(ResultCode.FORBIDDEN, "The card does not expire on a regular basis", "该银行卡没有到定期时间");
+                return new ResponseBean(ResultCode.FORBIDDEN, "The card does not expire on a regular basis", "没有到定期时间的银行卡");
             }
             if (flag == -1) {
                 return new ResponseBean(ResultCode.FORBIDDEN, "Lack of balance", "余额不足");
             }
-
             //log
             transInfo.setTransType(TransType.DINGQIQU);
 
@@ -124,6 +123,10 @@ public class AccessMoneyServiceImpl implements AccessMoneyService {
             }
             bankCardInfo.setCurrentBalance(bankCardInfo.getCurrentBalance() - guestTransInfo.getTransMoney());
             bankCardInfoMapper.updateByBankCardIdSelective(bankCardInfo);
+
+            BankCardInfo receBank=bankCardInfoMapper.selectByBankCardId(guestTransInfo.getReceiptCard());
+            receBank.setCurrentBalance(receBank.getCurrentBalance() + guestTransInfo.getTransMoney());
+            bankCardInfoMapper.updateByBankCardIdSelective(receBank);
 
             //log
             transInfo.setReceiptCard(guestTransInfo.getReceiptCard());
@@ -185,12 +188,18 @@ public class AccessMoneyServiceImpl implements AccessMoneyService {
             record.setSavingMonth(savingMoneyBean.getRegularMonth());
             record.setSavingDate(currentDate);
             record.setStopDate(stopDate);
+
+            BankCardInfo bankCardInfo=bankCardInfoMapper.selectByBankCardId(bankCardId);
+            BankCardInfo bkrecord=new BankCardInfo();
+            bkrecord.setBankCardId(bankCardInfo.getBankCardId());
+            bkrecord.setRegularBalance(bankCardInfo.getRegularBalance()+savingMoneyBean.getMoney());
+            bankCardInfoMapper.updateByBankCardIdSelective(bkrecord);
+
             DBbankCardInfo.setRegularBalance(DBbankCardInfo.getRegularBalance()+savingMoneyBean.getMoney());
 
             if(cardRegularInfoMapper.insert(record)<0){
                 return new ResponseBean(ResultCode.FAIL, "saving fail", "定期存款失败");
             }
-
 
         }
         transInfoMapper.insert(transInfo);

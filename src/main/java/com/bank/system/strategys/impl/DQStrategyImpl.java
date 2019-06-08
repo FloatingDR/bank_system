@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class DQStrategyImpl implements TransStrategy {
     @Override
     public String drawMoney(Integer type) {
-         return "定期取款";
+
+        return "定期取款!";
     }
 }

@@ -16,6 +16,6 @@ public class ZZStrategyImpl implements TransStrategy {
 
     @Override
     public String drawMoney(Integer type) {
-        return "转账";
+        return "转账!";
     }
 }

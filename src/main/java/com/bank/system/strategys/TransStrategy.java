@@ -11,6 +11,7 @@ public interface TransStrategy {
     /**
      * 取款或转账
      * @param type
+     * @return
      */
     String drawMoney(Integer type);
 }

@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
 public class QKStrategyImpl implements TransStrategy {
     @Override
     public String drawMoney(Integer type) {
-        return "活期取款";
+        return "活期取款!";
     }
 }

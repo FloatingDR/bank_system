@@ -60,7 +60,7 @@ public class AuthController {
     }
 
     /**
-     * 开户，仅admin可访问
+     * 开户
      *
      * @param bean
      * @date 2019-5-20

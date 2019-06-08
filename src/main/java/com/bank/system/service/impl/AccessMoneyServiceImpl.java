@@ -99,7 +99,6 @@ public class AccessMoneyServiceImpl implements AccessMoneyService {
                         flag = cardRegularInfoMapper.updateByBankCardId(cd);
                         bankCardInfoMapper.updateRegularByCardId_Minus(bankCardId, guestTransInfo.getTransMoney());
                     }
-
                 }
             }
             if (flag == -2) {

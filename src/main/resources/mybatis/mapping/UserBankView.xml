@@ -22,7 +22,8 @@
         user_bank_info
         where identity_card_id=#{identityCardId}
     </select>
-    <select id="createAbelCallProc" parameterType="java.util.Map"  statementType="CALLABLE" resultType="string">
+    <select id="createAbelCallProc" parameterType="java.util.Map"
+            statementType="CALLABLE" resultType="string">
        <![CDATA[{
            CALL createAccount(
              #{identityCardId,mode=IN,jdbcType=VARCHAR},

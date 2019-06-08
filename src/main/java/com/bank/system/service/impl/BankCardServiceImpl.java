@@ -62,10 +62,12 @@ public class BankCardServiceImpl implements BankCardService {
      * @return
      */
     @Override
-    public ResponseBean changePayPass(HttpServletRequest req, String IdCard, String bankCardId, String oldPassword, String newPassword) {
+    public ResponseBean changePayPass(HttpServletRequest req, String IdCard, String bankCardId,
+                                      String oldPassword, String newPassword) {
         String tokenIdCard= JWTUtil.getIdentityCardId(req.getHeader("Authorization"));
         if(!IdCard.equals(tokenIdCard)){
-            return new ResponseBean(ResultCode.FORBIDDEN, "the account is not you login", "该账号和您登陆的账号不符");
+            return new ResponseBean(ResultCode.FORBIDDEN, "the account is not you login",
+                    "该账号和您登陆的账号不符");
         }
         if(!isYourCard(IdCard,bankCardId)){
             return new ResponseBean(ResultCode.FORBIDDEN, "this is not your card", "这不是您的银行卡");
@@ -100,7 +102,8 @@ public class BankCardServiceImpl implements BankCardService {
         }
         if(MD5Util.verify(pay_password,bankCardInfo.getPayPassword())){
             if(bankCardInfo.getCurrentBalance()+bankCardInfo.getRegularBalance()>10){
-                return new ResponseBean(ResultCode.FORBIDDEN, "your balance is no empty", "银行卡账号余额大于10元，不能注销");
+                return new ResponseBean(ResultCode.FORBIDDEN,
+                        "your balance is no empty", "银行卡账号余额大于10元，不能注销");
             }
             //清除银行卡的定期存款信息
             List<CardRegularInfo> cardRegularList=cardRegularInfoMapper.getCardRegularInfos(bank_card_id);

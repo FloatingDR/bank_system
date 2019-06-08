@@ -13,7 +13,7 @@ import java.util.Map;
  * @author taylor
  * @ClassName: TransHandlerProcessor
  * @Description: 策略核心功能, 获取所有策略注解的类型
- *               并将对应的class初始化到HandlerOrderContext中
+ *               并将对应的class初始化到TransOrderContext中
  *
  *               当一个类实现了这个接口（ApplicationContextAware）之后，
  *               这个类就可以方便获得ApplicationContext中的所有bean

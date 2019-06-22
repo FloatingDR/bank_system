@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bank.system.mapper.BankCardInfoMapper" >
   <resultMap id="BaseResultMap" type="com.bank.system.model.BankCardInfo" >
-    <id column="bank_card_id" property="bankCardId" jdbcType="VARCHAR" />
-    <result column="pay_password" property="payPassword" jdbcType="VARCHAR" />
-    <result column="open_date" property="openDate" jdbcType="TIMESTAMP" />
-    <result column="open_money" property="openMoney" jdbcType="DOUBLE" />
-    <result column="current_balance" property="currentBalance" jdbcType="DOUBLE" />
-    <result column="regular_balance" property="regularBalance" jdbcType="DOUBLE" />
-  </resultMap>
+  <id column="bank_card_id" property="bankCardId" jdbcType="VARCHAR" />
+  <result column="pay_password" property="payPassword" jdbcType="VARCHAR" />
+  <result column="open_date" property="openDate" jdbcType="TIMESTAMP" />
+  <result column="open_money" property="openMoney" jdbcType="DOUBLE" />
+  <result column="current_balance" property="currentBalance" jdbcType="DOUBLE" />
+  <result column="regular_balance" property="regularBalance" jdbcType="DOUBLE" />
+</resultMap>
   <sql id="Base_Column_List" >
     bank_card_id, pay_password, open_date, open_money, current_balance, regular_balance
   </sql>

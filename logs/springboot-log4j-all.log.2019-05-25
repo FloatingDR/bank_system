@@ -1,0 +1,66 @@
+2019-05-25 17:24:54,104  INFO Version:21 - HV000001: Hibernate Validator 6.0.16.Final
+2019-05-25 17:24:54,264  INFO SystemApplication:50 - Starting SystemApplication on taylordeMacBook-Pro.local with PID 10186 (/Users/taylor/bank_system/target/classes started by taylor in /Users/taylor/bank_system)
+2019-05-25 17:24:54,265 DEBUG SystemApplication:53 - Running with Spring Boot v2.1.5.RELEASE, Spring v5.1.7.RELEASE
+2019-05-25 17:24:54,266  INFO SystemApplication:675 - No active profile set, falling back to default profiles: default
+2019-05-25 17:24:54,297  INFO DevToolsPropertyDefaultsPostProcessor:227 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-25 17:24:54,297  INFO DevToolsPropertyDefaultsPostProcessor:227 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-25 17:24:54,988  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'shiroConfig' of type [com.bank.system.config.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$d4b1a612] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,046  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,052  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$c7283799] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,054  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari$$EnhancerBySpringCGLIB$$d4d35056] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,062  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,081  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,304  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,307  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,308  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'userLoginMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,309  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'userLoginMapper' of type [com.sun.proxy.$Proxy57] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,312  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'userRealm' of type [com.bank.system.config.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,408  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'getWebSecurityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,425  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.apache.shiro.spring.boot.autoconfigure.ShiroAnnotationProcessorAutoConfiguration' of type [org.apache.shiro.spring.boot.autoconfigure.ShiroAnnotationProcessorAutoConfiguration$$EnhancerBySpringCGLIB$$aa0002be] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,439  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9453e669] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,445  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,459  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.apache.shiro.spring.boot.autoconfigure.ShiroBeanAutoConfiguration' of type [org.apache.shiro.spring.boot.autoconfigure.ShiroBeanAutoConfiguration$$EnhancerBySpringCGLIB$$a76cc419] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,463  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'eventBus' of type [org.apache.shiro.event.support.DefaultEventBus] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-25 17:24:55,818  INFO TomcatWebServer:90 - Tomcat initialized with port(s): 8080 (http)
+2019-05-25 17:24:55,927  INFO ContextLoader:296 - Root WebApplicationContext: initialization completed in 1630 ms
+2019-05-25 17:24:56,244  INFO ThreadPoolTaskExecutor:171 - Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-25 17:24:56,525  INFO OptionalLiveReloadServer:57 - LiveReload server is running on port 35729
+2019-05-25 17:24:56,575  INFO TomcatWebServer:204 - Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-25 17:24:56,579  INFO SystemApplication:59 - Started SystemApplication in 2.561 seconds (JVM running for 8.303)
+2019-05-25 17:25:31,972  INFO DispatcherServlet:524 - Initializing Servlet 'dispatcherServlet'
+2019-05-25 17:25:31,982  INFO DispatcherServlet:546 - Completed initialization in 10 ms
+2019-05-25 17:25:32,116  INFO HikariDataSource:110 - HikariPool-1 - Starting...
+2019-05-25 17:25:32,408  INFO HikariDataSource:123 - HikariPool-1 - Start completed.
+2019-05-25 17:25:32,417 DEBUG selectByIdCard:143 - ==>  Preparing: select identity_card_id, login_password, role_style from user_login where identity_card_id = ? 
+2019-05-25 17:25:32,435 DEBUG selectByIdCard:143 - ==> Parameters: admin(String)
+2019-05-25 17:25:32,454 DEBUG selectByIdCard:143 - <==      Total: 1
+2019-05-25 17:25:32,464 DEBUG selectByIdCard:143 - ==>  Preparing: select identity_card_id, login_password, role_style from user_login where identity_card_id = ? 
+2019-05-25 17:25:32,465 DEBUG selectByIdCard:143 - ==> Parameters: admin(String)
+2019-05-25 17:25:32,467 DEBUG selectByIdCard:143 - <==      Total: 1
+2019-05-25 17:25:41,462 DEBUG selectByIdCard:143 - ==>  Preparing: select identity_card_id, login_password, role_style from user_login where identity_card_id = ? 
+2019-05-25 17:25:41,463 DEBUG selectByIdCard:143 - ==> Parameters: admin(String)
+2019-05-25 17:25:41,465 DEBUG selectByIdCard:143 - <==      Total: 1
+2019-05-25 17:25:41,474 DEBUG selectByIdCard:143 - ==>  Preparing: select identity_card_id, username, address, telephone from user where identity_card_id = ? 
+2019-05-25 17:25:41,474 DEBUG selectByIdCard:143 - ==> Parameters: admin(String)
+2019-05-25 17:25:41,477 DEBUG selectByIdCard:143 - <==      Total: 1
+2019-05-25 17:26:00,928 DEBUG selectByIdCard:143 - ==>  Preparing: select identity_card_id, login_password, role_style from user_login where identity_card_id = ? 
+2019-05-25 17:26:00,928 DEBUG selectByIdCard:143 - ==> Parameters: admin(String)
+2019-05-25 17:26:00,930 DEBUG selectByIdCard:143 - <==      Total: 1
+2019-05-25 17:26:00,941 DEBUG getUserCards:143 - ==>  Preparing: select bank_card_id from user_card where identity_card_id=? 
+2019-05-25 17:26:00,942 DEBUG getUserCards:143 - ==> Parameters: 1327468723654873264(String)
+2019-05-25 17:26:00,952 DEBUG getUserCards:143 - <==      Total: 0
+2019-05-25 17:26:03,531 DEBUG selectByIdCard:143 - ==>  Preparing: select identity_card_id, login_password, role_style from user_login where identity_card_id = ? 
+2019-05-25 17:26:03,532 DEBUG selectByIdCard:143 - ==> Parameters: admin(String)
+2019-05-25 17:26:03,533 DEBUG selectByIdCard:143 - <==      Total: 1
+2019-05-25 17:26:03,538 DEBUG getUserCards:143 - ==>  Preparing: select bank_card_id from user_card where identity_card_id=? 
+2019-05-25 17:26:03,539 DEBUG getUserCards:143 - ==> Parameters: 1327468723654873264(String)
+2019-05-25 17:26:03,541 DEBUG getUserCards:143 - <==      Total: 0
+2019-05-25 17:26:58,940 DEBUG selectByIdCard:143 - ==>  Preparing: select identity_card_id, login_password, role_style from user_login where identity_card_id = ? 
+2019-05-25 17:26:58,942 DEBUG selectByIdCard:143 - ==> Parameters: admin(String)
+2019-05-25 17:26:58,944 DEBUG selectByIdCard:143 - <==      Total: 1
+2019-05-25 17:26:58,947 DEBUG getUserCards:143 - ==>  Preparing: select bank_card_id from user_card where identity_card_id=? 
+2019-05-25 17:26:58,948 DEBUG getUserCards:143 - ==> Parameters: admin(String)
+2019-05-25 17:26:58,952 DEBUG getUserCards:143 - <==      Total: 2
+2019-05-25 17:31:00,904  INFO ThreadPoolTaskExecutor:208 - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-25 17:31:00,907  INFO HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2019-05-25 17:31:00,917  INFO HikariDataSource:352 - HikariPool-1 - Shutdown completed.

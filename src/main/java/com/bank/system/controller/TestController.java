@@ -20,8 +20,9 @@ public class TestController {
     TransContextHandler transContextHandler;
 
     @GetMapping("/drawMoney_by_type/{type}")
-    public String drawMoney(@PathVariable int type){
-        TransStrategy transStrategy=transContextHandler.getTransStrategy(type);
+    public String drawMoney(@PathVariable int type) {
+        TransStrategy transStrategy = transContextHandler.getTransStrategy(type);
         return transStrategy.drawMoney(type);
     }
+
 }
